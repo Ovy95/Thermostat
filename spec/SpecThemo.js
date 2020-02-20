@@ -55,5 +55,14 @@ describe ("Thermostat", function(){
 
   });
 
+  it("Reset the temperature to 20 with a reset function" , function(){
+    thermostat.decreaseTemperature() 
+    thermostat.decreaseTemperature()//18
+    expect(thermostat.resetThermostat()) 
+    expect(thermostat.temperature).toEqual(20);
+
+  });
+
+
   
 });
