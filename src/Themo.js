@@ -35,6 +35,10 @@ Thermostat.prototype.switchPowerSaving = function(){
   }
 };
 
+Thermostat.prototype.switchPowerSavingON = function(){
+    this.powerSaving = true
+};
+
 Thermostat.prototype.getCurrentTemperature = function() {
   return this.temperature;
 };

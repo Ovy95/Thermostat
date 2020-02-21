@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Thermostat</title>
+  </head>
+  <body>
+    <section>
+      <h1 id="temperature"></h1>
+      <p>
+        <button id="temperature-up">+</button>
+        <br>
+        <button id="temperature-down">-</button>
+        <br>
+        <button id="temperature-reset">reset</button>
+        <br>
+        <button id="powersaving-on">PSM on</button>
+
+        <button id="powersaving-off">PSM off</button>
+        <br>
+        off<label class="switch">
+          <input type="checkbox" class="toggle_power" checked >
+          <span class="slider round"></span>
+        </label> on
+      </p>
+    </section>
+    
+    <script src="jquery.js"></script>
+
+    <script $(document).ready(function() { }) >
+    $(document).ready(function() { 
+
+    }) </script>
+    <script src="src/Themo.js"></script>
+    <script>
+    var thermostat = new Thermostat();
+    $(document).ready(function() {
+      $('#temperature').text(thermostat.temperature);
+    })
+
+    $('#temperature-up').click(function() {
+    thermostat.increaseTemperature();
+    $('#temperature').text(thermostat.getCurrentTemperature());
+    
+   });
+  $('#temperature-down').click(function() {
+    thermostat.decreaseTemperature();
+    $('#temperature').text(thermostat.getCurrentTemperature());
+  });
+
+  $('#temperature-reset').click(function() {
+    thermostat.resetThermostat();
+    thermostat.switchPowerSavingON();
+    $('#temperature').text(thermostat.getCurrentTemperature());
+  });
+
+  $('#powersaving-off').click(function() {
+    thermostat.switchPowerSaving();
+    $('#temperature').text(thermostat.getCurrentTemperature());
+  });
+
+  $('#powersaving-on').click(function() {
+    thermostat.switchPowerSavingON();
+    thermostat.resetThermostat();
+    $('#temperature').text(thermostat.getCurrentTemperature());
+  });
+
+  $('.toggle_power').click(function() {
+    thermostat.switchPowerSaving();
+    thermostat.resetThermostat();
+    $('#temperature').text(thermostat.getCurrentTemperature());
+  });
+
+
+
+    </script>
+
+<style>
+  /* The switch - the box around the slider */
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+  
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+
+
+</style>
+
+
+  </body>
+</html>
