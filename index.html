@@ -21,7 +21,20 @@
           <input type="checkbox" class="toggle_power" checked >
           <span class="slider round"></span>
         </label> on
+
+  
+
+        <section>
+          <h1>Current temperature: <span id="current-temperature">20</span></h1>
+          <form id="select-city">
+            <input id="current-city" type="text" placeholder="Enter a city"></input>
+            <input type="submit"></input>
+          </form>
+        </section>
+
+
       </p>
+
     </section>
     
     <script src="jquery.js"></script>
@@ -33,18 +46,26 @@
     <script src="src/Themo.js"></script>
     <script>
     var thermostat = new Thermostat();
+
     $(document).ready(function() {
       $('#temperature').text(thermostat.temperature);
+      $.get('http://api.openweathermap.org/data/2.5/weather?q=London&appid=a3d9eb01d4de82b9b8d0849ef604dbed&units=metric', function(data) {
+      $('#current-temperature').text(data.main.temp);
+      })
+
     })
 
     $('#temperature-up').click(function() {
     thermostat.increaseTemperature();
     $('#temperature').text(thermostat.getCurrentTemperature());
+    $('#temperature').attr('class', thermostat.energyUsage());
+
     
    });
   $('#temperature-down').click(function() {
     thermostat.decreaseTemperature();
     $('#temperature').text(thermostat.getCurrentTemperature());
+    $('#temperature').attr('class', thermostat.energyUsage());
   });
 
   $('#temperature-reset').click(function() {
@@ -70,11 +91,40 @@
     $('#temperature').text(thermostat.getCurrentTemperature());
   });
 
+  $.get('http://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=a3d9eb01d4de82b9b8d0849ef604dbed', function(data) {
+  console.log(data.main.temp);
+  })
+
+  $('#select-city').submit(function(event) {
+  event.preventDefault();
+  var city = $('#current-city').val();
+  $.get('http://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=a3d9eb01d4de82b9b8d0849ef604dbed&units=metric', function(data) {
+    $('#current-temperature').text(data.main.temp);
+  })
+})
+
+
 
 
     </script>
 
+
+<center>
 <style>
+
+.low-usage {
+  color: green;
+}
+
+.medium-usage {
+  color: blue;
+}
+
+.high-usage {
+  color: red;
+}
+
+
   /* The switch - the box around the slider */
   .switch {
     position: relative;
@@ -137,9 +187,15 @@
   .slider.round:before {
     border-radius: 50%;
   }
+  body {
+  background-color: lightblue;
+}
 
 
 </style>
+</center>
+
+
 
 
   </body>
