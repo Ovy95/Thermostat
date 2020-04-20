@@ -18,13 +18,11 @@ Thermostat.prototype.increaseTemperature = function() {
   };
 };
 
-
 Thermostat.prototype.decreaseTemperature = function() {
   if (this.temperature > this.Minimum_Temp) {
     this.temperature = this.temperature - 1
   };
 };
-
 
 Thermostat.prototype.resetThermostat = function() {
   if (this.temperature = this.default_temperature) {
@@ -55,11 +53,9 @@ Thermostat.prototype.energyUsage = function() {
   } else {
     return "high-usage"
   } 
-
 };
 
 function updateTemperature() {
   $('#temperature').text(thermostat.temperature);
   $('#temperature').attr('class', thermostat.energyUsage());
-
 }
