@@ -63,6 +63,3 @@ function updateTemperature() {
   $('#temperature').attr('class', thermostat.energyUsage());
 
 }
-
-
-

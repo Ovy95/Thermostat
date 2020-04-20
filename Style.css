@@ -1,24 +1,29 @@
 html { font-family: 'Quicksand', monospace;}
 body {
-  background-color: rgb(255, 255, 255);
- 
+  background-image: url(London_background.jpg);
+  background-size: 100%;
+  background-color: transparent;
   }
-  h1{
-    /* font-family: 'Quicksand', monospace; */
-  }
+
 #main {
-  width: 600px;
-  margin: auto;
-  background-color: aqua;
-  padding: 10px;
-  border-radius: 2cm;
+  transform: translate(180%, 12%);
+  width: 300px;
+  margin:  0 auto;
+  padding: 2px;
+  border-radius: 0.5cm;
   display: inline-block;
+  color: whitesmoke;
   text-align: center;
   align-items: center;
+  background-color: transparent;
+  text-size-adjust: auto;
+}
+#London {
+font-size: larger;
 
 }
 .low-usage {
-  color: green;
+  color: rgb(26, 210, 26);
 }
 
 .medium-usage {
@@ -56,6 +61,7 @@ body {
     background-color: #ccc;
     -webkit-transition: .4s;
     transition: .4s;
+    color: black
   }
   
   .slider:before {
