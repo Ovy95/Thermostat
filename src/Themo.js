@@ -3,14 +3,16 @@ function Thermostat(){
   this.default_temperature = 20;
   this.temperature = this.default_temperature
   this.Minimum_Temp = 10
+  this.Maximum_Temp = 25
+  this.PowerSaving_Mode_off_Max_Temp = 32
   this.powerSaving = true;
 };
 
 Thermostat.prototype.increaseTemperature = function() {
-  if(this.temperature < 32 && this.powerSaving === false){
+  if(this.temperature < this.PowerSaving_Mode_off_Max_Temp && this.powerSaving === false){
     this.temperature = this.temperature + 1
   }
-  if (this.temperature < 25 && this.powerSaving === true) {
+  if (this.temperature < this.Maximum_Temp && this.powerSaving === true) {
     this.temperature = this.temperature + 1
   };
 };
@@ -47,7 +49,7 @@ Thermostat.prototype.getCurrentTemperature = function() {
 Thermostat.prototype.energyUsage = function() {
   if (this.temperature < 18) {
     return "low-usage"
-  } else if(this.temperature >= 18 && this.temperature < 25) {
+  } else if(this.temperature >= 18 && this.temperature < this.Maximum_Temp) {
     return "medium-usage"
   } else {
     return "high-usage"

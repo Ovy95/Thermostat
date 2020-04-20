@@ -33,7 +33,7 @@ describe ("Thermostat", function(){
   })
 
   it("the maximum temperature is 25 degrees if power saving mode is on",function(){
-    for (t = 0; t < 30; t++) {
+    for ( let t = 0; t < 30; t++) {
       thermostat.increaseTemperature()
     };
     expect(thermostat.temperature).toEqual(25);
@@ -51,7 +51,7 @@ describe ("Thermostat", function(){
   it("Power saving mode is off, max temp is 32",function(){
     thermostat.powerSaving = false;
   
-    for (t = 0; t < 50; t++) {
+    for (let t = 0; t < 50; t++) {
       thermostat.increaseTemperature()
     };
     expect(thermostat.temperature).toEqual(32);
