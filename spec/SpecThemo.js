@@ -90,7 +90,7 @@ describe ("Thermostat", function(){
     describe('when the temperature is anything else', function() {
       it('it is considered high-usage', function() {
         thermostat.powerSaving = false;
-        for (var i = 0; i < 6; i++) {
+        for (let i = 0; i < 6; i++) {
           thermostat.increaseTemperature();
         }
         expect(thermostat.energyUsage()).toEqual('high-usage');
