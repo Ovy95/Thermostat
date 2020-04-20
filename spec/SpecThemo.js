@@ -2,7 +2,7 @@
 
 describe ("Thermostat", function(){
   var thermostat;
-  
+
   beforeEach(function(){
     thermostat = new Thermostat();
   });
@@ -68,6 +68,7 @@ describe ("Thermostat", function(){
 
   it("You can check the current temperature",function(){
     thermostat.getCurrentTemperature()
+    expect(thermostat.temperature).toEqual(20);
   });
 
   describe('displaying usage levels', function() {

@@ -1,6 +1,7 @@
 
 function Thermostat(){
-  this.temperature = 20;
+  this.default_temperature = 20;
+  this.temperature = this.default_temperature
   this.powerSaving = true;
 };
 
@@ -17,15 +18,12 @@ Thermostat.prototype.decreaseTemperature = function() {
   if (this.temperature > 10) {
     this.temperature = this.temperature - 1
   };
-  
 };
 
 Thermostat.prototype.resetThermostat = function() {
-  if (this.temperature !== 20) {
-    this.temperature = 20;
-  }
-
-}
+  if (this.temperature = this.default_temperature) {
+  };
+};
 
 Thermostat.prototype.switchPowerSaving = function(){
   if (this.powerSaving === true) {
