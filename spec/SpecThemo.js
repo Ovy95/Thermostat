@@ -22,7 +22,7 @@ describe ("Thermostat", function(){
   });
   
   it("The minimum temperature is 10 degrees",function(){
-    for (t = 0; t < 15; t++) {
+    for (let t = 0; t < 15; t++) {
       thermostat.decreaseTemperature()
     }
     expect(thermostat.temperature).toEqual(10);
