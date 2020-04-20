@@ -4,13 +4,17 @@
   
   <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="Style.css">
+
     <title>Thermostat</title>
   </head>
   <body>
+
     <title>Thermostat test</title>
     <div id="main">
     <h1>Thermostat</h1>
     
+
+    <!-- this is for the Buttons up and down -->
     <section>
       <h1 id="temperature"></h1>
       <p>
@@ -30,9 +34,9 @@
         </label> on
 
   
-
+          <!-- This is london temperature -->
         <section>
-          <h1>Current temperature: <span id="current-temperature">20</span></h1>
+          <h1>Current temperature: <span id="current-temperature"></span></h1>
           <form id="select-city">
             <input id="current-city" type="text" placeholder="Enter a city"></input>
             <input type="submit"></input>
@@ -45,75 +49,8 @@
     </section>
   </div>
     <script src="jquery.js"></script>
-
-    <script $(document).ready(function() { }) >
-    $(document).ready(function() { 
-
-    }) </script>
     <script src="src/Themo.js"></script>
-    <script>
-    var thermostat = new Thermostat();
-
-    $(document).ready(function() {
-      $('#temperature').text(thermostat.temperature);
-      $.get('http://api.openweathermap.org/data/2.5/weather?q=London&appid=a3d9eb01d4de82b9b8d0849ef604dbed&units=metric', function(data) {
-      $('#current-temperature').text(data.main.temp);
-      })
-
-    })
-
-    $('#temperature-up').click(function() {
-    thermostat.increaseTemperature();
-    $('#temperature').text(thermostat.getCurrentTemperature());
-    $('#temperature').attr('class', thermostat.energyUsage());
-
-    
-   });
-  $('#temperature-down').click(function() {
-    thermostat.decreaseTemperature();
-    $('#temperature').text(thermostat.getCurrentTemperature());
-    $('#temperature').attr('class', thermostat.energyUsage());
-  });
-
-  $('#temperature-reset').click(function() {
-    thermostat.resetThermostat();
-    thermostat.switchPowerSavingON();
-    $('#temperature').text(thermostat.getCurrentTemperature());
-  });
-
-  $('#powersaving-off').click(function() {
-    thermostat.switchPowerSaving();
-    $('#temperature').text(thermostat.getCurrentTemperature());
-  });
-
-  $('#powersaving-on').click(function() {
-    thermostat.switchPowerSavingON();
-    thermostat.resetThermostat();
-    $('#temperature').text(thermostat.getCurrentTemperature());
-  });
-
-  $('.toggle_power').click(function() {
-    thermostat.switchPowerSaving();
-    thermostat.resetThermostat();
-    $('#temperature').text(thermostat.getCurrentTemperature());
-  });
-
-  $.get('http://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=a3d9eb01d4de82b9b8d0849ef604dbed', function(data) {
-  console.log(data.main.temp);
-  })
-
-  $('#select-city').submit(function(event) {
-  event.preventDefault();
-  var city = $('#current-city').val();
-  $.get('http://api.openweathermap.org/data/2.5/weather?q=' + city + '&appid=a3d9eb01d4de82b9b8d0849ef604dbed&units=metric', function(data) {
-    $('#current-temperature').text(data.main.temp);
-  })
-})
-
-
-
-
-    </script>
+    <script src="./interface.js"></script>
 
   </body>
 </html>
