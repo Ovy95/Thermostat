@@ -36,6 +36,6 @@ run `npm start` and your default browser will pop up a window the app!
 open the SpecRunner.Html file in browser, or in the terminal enter 'open SpecRunner.Html'
 
 ## App 
-
+![Themostat App](https://user-images.githubusercontent.com/57540755/79857161-41906700-83c5-11ea-83f4-ebabfccc0ae0.png
 
 
