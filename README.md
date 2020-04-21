@@ -23,17 +23,16 @@ Purpose of the project was to build the logic needed to model a simple thermosta
 * OpenWeather Weather API
 
 
-
 ##### To install this project to your local machine
 `git clone  https://github.com/Ovy95/Thermostat.git `<br>
 `cd  Thermostat`<br>
 `npm install` <br>
 
 ##### To Run the app
-run `npm start` and your default browser will pop up a window the app!
+Run Open the index.Html file in browser, or in the terminal enter 'open index.Html'
 
 ##### To Run the tests 
-open the SpecRunner.Html file in browser, or in the terminal enter 'open SpecRunner.Html'
+Open the SpecRunner.Html file in browser, or in the terminal enter 'open SpecRunner.Html'
 
 ## App 
 ![Themostat App](https://user-images.githubusercontent.com/57540755/79857161-41906700-83c5-11ea-83f4-ebabfccc0ae0.png)
